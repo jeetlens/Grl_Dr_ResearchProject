@@ -110,8 +110,8 @@
         ]
       ],
       "roc": 0.9777965660770032,
-      "checkpoint": "/content/drive/MyDrive/Mental_Health_Research/Final_Results/seed_77/baseline/best_model.pt",
-      "test_file": "/content/research_project/RESEARCH/mental_health_project/data/both_test.csv",
+      "checkpoint": "outputs/checkpoints/baseline_model.pt",
+      "test_file": "data/both_test.csv",
       "roc_curve": {
         "model": "Baseline",
         "fpr": [
@@ -1539,8 +1539,8 @@
         ]
       ],
       "roc": 0.9786572147069025,
-      "checkpoint": "/content/drive/MyDrive/Mental_Health_Research/Final_Results/seed_77/grl/best_model.pt",
-      "test_file": "/content/research_project/RESEARCH/mental_health_project/data/both_test.csv",
+      "checkpoint": "outputs/checkpoints/grl_model.pt",
+      "test_file": "data/both_test.csv",
       "roc_curve": {
         "model": "GRL",
         "fpr": [

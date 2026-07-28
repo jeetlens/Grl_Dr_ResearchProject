@@ -24,8 +24,8 @@ for studying robust mental health text classification.
 
 The increasing availability of online mental health discourse has motivated the
 development of machine learning systems that classify textual signals related to
-depression, anxiety, stress, suicidal ideation, and other mental health
-conditions [CITATION_SURVEY_MENTAL_HEALTH_NLP]. Transformer language models have
+ADHD, Anxiety, Bipolar, Depression, PTSD, and non-mental-health
+content. Transformer language models have
 substantially improved text classification performance by learning contextual
 representations from large-scale corpora [CITATION_TRANSFORMERS]. Despite these
 gains, mental health classification remains challenging because user language is
@@ -61,12 +61,12 @@ The main contributions of this paper are:
 
 Computational mental health research has used social media, forums, and other
 textual data sources to identify signals associated with mental health
-conditions [CITATION_DEPRESSION_SOCIAL_MEDIA], [CITATION_REDDIT_MENTAL_HEALTH].
-Earlier systems often relied on bag-of-words features, lexicons, topic models,
-and classical classifiers such as support vector machines or logistic
-regression [CITATION_CLASSICAL_MH_NLP]. More recent work has adopted pretrained
-language models, which better capture contextual meaning and improve downstream
-classification accuracy [CITATION_BERT_MH].
+conditions. Murarka et al. focus on Reddit title/post text and define a
+six-class setup containing ADHD, Anxiety, Bipolar, Depression, PTSD, and None
+[CITATION_MURARKA_DATASET]. Earlier systems often relied on
+bag-of-words features, lexicons, topic models, and classical classifiers. More
+recent work has adopted pretrained language models, which better capture
+contextual meaning and improve downstream classification accuracy.
 
 ### Transformer Models for Text Classification
 
@@ -84,11 +84,9 @@ Domain-adversarial neural networks aim to learn representations that are useful
 for a primary task but invariant to domain identity [CITATION_DANN]. A common
 implementation uses a Gradient Reversal Layer, which behaves as the identity
 function during the forward pass and multiplies gradients by a negative scalar
-during the backward pass. This technique has been applied to domain adaptation
-in computer vision and NLP [CITATION_DOMAIN_ADAPTATION_NLP]. In mental health
-classification, domain-adversarial learning is especially relevant because
-language distributions can vary substantially across platforms and user
-communities.
+during the backward pass. In mental health classification, domain-adversarial
+learning is especially relevant because language distributions can vary
+substantially across platforms and user communities.
 
 ## Dataset
 
@@ -112,18 +110,20 @@ as cross-dataset domain adaptation.
 
 | Split | File | Purpose | Number of Examples |
 |---|---|---:|---:|
-| Train | `both_train.csv` | Model optimization | TODO |
-| Validation | `both_val.csv` | Model selection | TODO |
-| Test | `both_test.csv` | Final evaluation | TODO |
+| Train | `both_train.csv` | Model optimization | 13,727 |
+| Validation | `both_val.csv` | Model selection | 1,488 |
+| Test | `both_test.csv` | Final evaluation | 1,488 |
 
 ### Label Distribution
 
 | Label | Train | Validation | Test |
 |---|---:|---:|---:|
-| Class 1 | TODO | TODO | TODO |
-| Class 2 | TODO | TODO | TODO |
-| Class 3 | TODO | TODO | TODO |
-| Class 4 | TODO | TODO | TODO |
+| ADHD | 2,465 | 248 | 248 |
+| Anxiety | 2,422 | 248 | 248 |
+| Bipolar | 2,407 | 248 | 248 |
+| Depression | 2,450 | 248 | 248 |
+| PTSD | 2,001 | 248 | 248 |
+| None | 1,982 | 248 | 248 |
 
 ## Methodology
 
@@ -295,28 +295,42 @@ and macro averaging gives equal importance to each class.
 
 ### Main Comparison
 
+Single-seed held-out test results from `outputs/reports/comparison.csv`:
+
 | Model | Accuracy | Precision | Recall | Macro F1 | Weighted F1 | ROC AUC |
 |---|---:|---:|---:|---:|---:|---:|
-| DistilRoBERTa | TODO | TODO | TODO | TODO | TODO | TODO |
-| DistilRoBERTa + GRL | TODO | TODO | TODO | TODO | TODO | TODO |
+| DistilRoBERTa | 84.01% | 84.46% | 84.01% | 84.02% | 84.02% | 97.78% |
+| DistilRoBERTa + GRL | 84.61% | 84.74% | 84.61% | 84.61% | 84.61% | 97.87% |
+
+Three-seed held-out test averages from
+`outputs/reports/multiseed/paper_ready_test_results.csv`:
+
+| Model | Accuracy | Macro F1 | Weighted F1 | ROC AUC |
+|---|---:|---:|---:|---:|
+| DistilRoBERTa | 84.81 +/- 0.71 | 84.83 +/- 0.71 | 84.83 +/- 0.71 | 97.81 +/- 0.03 |
+| DistilRoBERTa + GRL | 84.59 +/- 0.84 | 84.61 +/- 0.81 | 84.61 +/- 0.81 | 97.79 +/- 0.16 |
 
 ### Per-Class Classification Report: DistilRoBERTa
 
 | Class | Precision | Recall | F1 | Support |
 |---|---:|---:|---:|---:|
-| Class 1 | TODO | TODO | TODO | TODO |
-| Class 2 | TODO | TODO | TODO | TODO |
-| Class 3 | TODO | TODO | TODO | TODO |
-| Class 4 | TODO | TODO | TODO | TODO |
+| ADHD | 81.15% | 85.08% | 83.07% | 248 |
+| Anxiety | 78.57% | 84.27% | 81.32% | 248 |
+| Bipolar | 83.57% | 71.77% | 77.22% | 248 |
+| Depression | 75.00% | 85.89% | 80.08% | 248 |
+| PTSD | 90.91% | 80.65% | 85.47% | 248 |
+| None | 97.55% | 96.37% | 96.96% | 248 |
 
 ### Per-Class Classification Report: DistilRoBERTa + GRL
 
 | Class | Precision | Recall | F1 | Support |
 |---|---:|---:|---:|---:|
-| Class 1 | TODO | TODO | TODO | TODO |
-| Class 2 | TODO | TODO | TODO | TODO |
-| Class 3 | TODO | TODO | TODO | TODO |
-| Class 4 | TODO | TODO | TODO | TODO |
+| ADHD | 86.42% | 84.68% | 85.54% | 248 |
+| Anxiety | 80.80% | 81.45% | 81.12% | 248 |
+| Bipolar | 80.60% | 75.40% | 77.92% | 248 |
+| Depression | 76.90% | 85.89% | 81.14% | 248 |
+| PTSD | 87.76% | 83.87% | 85.77% | 248 |
+| None | 95.98% | 96.37% | 96.18% | 248 |
 
 ### Figures
 
@@ -349,7 +363,11 @@ performance, possible explanations include weak or noisy domain labels,
 insufficient domain shift, an overly strong adversarial objective, or conflict
 between domain invariance and class-discriminative information.
 
-Confusion matrices are especially important for interpreting mental health
+In the saved single-seed test comparison, the GRL model improves macro F1 over
+the baseline. Across three test seeds, however, the baseline has a small average
+advantage. No statistical significance test is included, so the comparison
+should be interpreted descriptively. Confusion matrices are especially important
+for interpreting mental health
 classification models. Aggregate metrics can hide systematic errors, such as
 frequent confusion between semantically related conditions. ROC curves provide
 an additional view of ranking behavior, although they should be interpreted
@@ -364,6 +382,8 @@ classification, while the GRL model encourages the shared encoder to learn
 features that are predictive of mental health labels but less predictive of
 domain identity. The project includes a complete training, evaluation, and
 figure-generation pipeline suitable for research experimentation and reporting.
+The saved results indicate that GRL does not provide a consistent improvement
+under the current proxy-domain setup.
 
 ## Future Work
 
@@ -384,31 +404,30 @@ include:
 
 ## References
 
-[CITATION_MURARKA_DATASET] Murarka et al. Mental Health Classification Dataset.
-Full bibliographic details to be added.
+[CITATION_MURARKA_DATASET] Ankit Murarka, Balaji Radhakrishnan, and Sushma
+Ravichandran. 2021. Classification of mental illnesses on social media using
+RoBERTa. In Proceedings of the 12th International Workshop on Health Text
+Mining and Information Analysis, pages 59-68. Association for Computational
+Linguistics. https://aclanthology.org/2021.louhi-1.7/
 
-[CITATION_SURVEY_MENTAL_HEALTH_NLP] Placeholder for a survey on NLP for mental
-health.
+[CITATION_TRANSFORMERS] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob
+Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+2017. Attention Is All You Need. Advances in Neural Information Processing
+Systems.
 
-[CITATION_TRANSFORMERS] Placeholder for the Transformer architecture citation.
+[CITATION_BERT] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina
+Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for
+Language Understanding. Proceedings of NAACL-HLT.
 
-[CITATION_BERT] Placeholder for BERT citation.
+[CITATION_ROBERTA] Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi,
+Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
+2019. RoBERTa: A Robustly Optimized BERT Pretraining Approach. arXiv:1907.11692.
 
-[CITATION_ROBERTA] Placeholder for RoBERTa citation.
+[CITATION_DISTILROBERTA] Victor Sanh, Lysandre Debut, Julien Chaumond, and
+Thomas Wolf. 2019. DistilBERT, a distilled version of BERT: smaller, faster,
+cheaper and lighter. NeurIPS EMC2 Workshop.
 
-[CITATION_DISTILROBERTA] Placeholder for DistilRoBERTa citation.
-
-[CITATION_DANN] Placeholder for Domain-Adversarial Neural Networks and Gradient
-Reversal Layer citation.
-
-[CITATION_DOMAIN_ADAPTATION_NLP] Placeholder for domain adaptation in NLP.
-
-[CITATION_DEPRESSION_SOCIAL_MEDIA] Placeholder for depression detection from
-social media.
-
-[CITATION_REDDIT_MENTAL_HEALTH] Placeholder for Reddit mental health analysis.
-
-[CITATION_CLASSICAL_MH_NLP] Placeholder for classical machine learning in mental
-health NLP.
-
-[CITATION_BERT_MH] Placeholder for BERT-based mental health classification.
+[CITATION_DANN] Yaroslav Ganin, Evgeniya Ustinova, Hana Ajakan, Pascal Germain,
+Hugo Larochelle, Francois Laviolette, Mario Marchand, and Victor Lempitsky.
+2016. Domain-Adversarial Training of Neural Networks. Journal of Machine
+Learning Research, 17(59):1-35.
