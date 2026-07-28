@@ -1,0 +1,50 @@
+project:
+  name: mental_health_distilroberta
+  seed: 77
+  device: auto
+
+data:
+  train_file: data/both_train.csv
+  val_file: data/both_val.csv
+  test_file: data/both_test.csv
+  text_column: null
+  label_column: class_name
+  domain_column: null
+  max_length: 128
+  lowercase: false
+
+model:
+  backbone: distilroberta-base
+  dropout: 0.20
+
+training:
+  output_dir: outputs
+  experiment_name: baseline_distilroberta
+  epochs: 3
+  batch_size: 16
+  gradient_accumulation_steps: 1
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  warmup_ratio: 0.10
+  max_grad_norm: 1.0
+  num_workers: 0
+  mixed_precision: true
+  early_stopping_patience: null
+  metric_for_best_model: macro_f1
+  max_train_batches: null
+  max_eval_batches: null
+
+domain:
+  strategy: text_length_bins
+  experiment_label: proxy-domain adversarial training
+
+grl:
+  experiment_name: grl_distilroberta
+  lambda_max: 0.1
+  lambda_schedule: constant
+  domain_loss_weight: 0.1
+
+evaluation:
+  checkpoint_path: null
+  split: test
+  save_predictions: true

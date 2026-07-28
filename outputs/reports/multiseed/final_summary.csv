@@ -1,0 +1,5 @@
+,Accuracy,Accuracy,Macro-F1,Macro-F1,Weighted-F1,Weighted-F1
+,mean,std,mean,std,mean,std
+Model,,,,,,
+Baseline,84.59,0.27,84.74,0.29,84.74,0.29
+Grl,84.36,0.21,84.5,0.18,84.5,0.18

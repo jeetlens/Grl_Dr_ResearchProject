@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+outputs/checkpoints/
+
+# Datasets
+data/raw/
+data/processed/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# ML experiment folders
+wandb/
+mlruns/
+.cache/

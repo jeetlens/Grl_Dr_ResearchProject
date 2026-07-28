@@ -1,0 +1,59 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9058135803658646,
+      "val_loss": 0.5883192199692932,
+      "train_classification_loss": 0.83748233498949,
+      "val_classification_loss": 0.5213228682036041,
+      "train_domain_loss": 0.6833124506028938,
+      "val_domain_loss": 0.6699635495421707,
+      "train_accuracy": 0.6922124280614846,
+      "val_accuracy": 0.8178763440860215,
+      "train_domain_accuracy": 0.553726232971516,
+      "val_domain_accuracy": 0.5967741935483871,
+      "val_macro_f1": 0.8211773408591476,
+      "val_weighted_f1": 0.8211773408591475,
+      "grl_lambda": 0.10000000000000002,
+      "domain_loss_weight": 0.1
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5081760870826828,
+      "val_loss": 0.5557696105491731,
+      "train_classification_loss": 0.4407896794778206,
+      "val_classification_loss": 0.4887288911368257,
+      "train_domain_loss": 0.6738640720888729,
+      "val_domain_loss": 0.6704072029359879,
+      "train_accuracy": 0.8524076637284185,
+      "val_accuracy": 0.8387096774193549,
+      "train_domain_accuracy": 0.5806075617396372,
+      "val_domain_accuracy": 0.5866935483870968,
+      "val_macro_f1": 0.8414120857566362,
+      "val_weighted_f1": 0.8414120857566361,
+      "grl_lambda": 0.10000000000000002,
+      "domain_loss_weight": 0.1
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3921760219238299,
+      "val_loss": 0.5479357344328716,
+      "train_classification_loss": 0.3248815809513305,
+      "val_classification_loss": 0.48118515745286017,
+      "train_domain_loss": 0.6729444034032889,
+      "val_domain_loss": 0.6675057359921035,
+      "train_accuracy": 0.8942230640343848,
+      "val_accuracy": 0.8454301075268817,
+      "train_domain_accuracy": 0.5821373934581482,
+      "val_domain_accuracy": 0.6008064516129032,
+      "val_macro_f1": 0.8463406300373079,
+      "val_weighted_f1": 0.8463406300373078,
+      "grl_lambda": 0.10000000000000002,
+      "domain_loss_weight": 0.1
+    }
+  ],
+  "best_metric": 0.8463406300373079,
+  "metric_for_best_model": "macro_f1",
+  "loss_formula": "total_loss = classification_loss + 0.1 * domain_loss",
+  "experiment_label": "proxy-domain adversarial training"
+}

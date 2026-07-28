@@ -1,0 +1,122 @@
+{
+  "domain_strategy": {
+    "strategy": "text_length_bins",
+    "description": "Proxy-domain adversarial training using training-set median word length. This is not cross-dataset domain adaptation.",
+    "domain_to_id": {
+      "short_or_equal_training_median": 0,
+      "longer_than_training_median": 1
+    },
+    "text_length_threshold": 135.0,
+    "length_unit": "words"
+  },
+  "splits": {
+    "train": {
+      "headers": [
+        "ID",
+        "title",
+        "post",
+        "class_name",
+        "class_id"
+      ],
+      "raw_row_count": 13727,
+      "usable_row_count": 13727,
+      "missing_values": {
+        "ID": 0,
+        "title": 0,
+        "post": 0,
+        "class_name": 0,
+        "class_id": 0
+      },
+      "duplicate_combined_texts": 3,
+      "class_distribution": {
+        "adhd": 2465,
+        "depression": 2450,
+        "anxiety": 2422,
+        "bipolar": 2407,
+        "ptsd": 2001,
+        "none": 1982
+      },
+      "generated_domain_distribution": {
+        "short_or_equal_training_median": 6866,
+        "longer_than_training_median": 6861
+      },
+      "examples": [
+        "a question about the third conditional. i was making questions for my students and i ran into a little tricky grammar. which is correct (focusing on the latter part of the sentence): &amp;#x200b; * if you had traveled to australia yesterday, what wouldn't you have done while you had been there? * if you had traveled to australia yesterday, what wouldn't you have done while you were there? &amp;#x200b; the second \\*feels\\* right, but i want to make sure.",
+        "the epitome of my life i've recently requested testing accommodations at my university and was given letters to personally give to my professors. so i gave the first one i saw his and he was very nice about it. the next day i brought the next professor his (he probably thinks i'm a nut i'm always screwing stuff up in this class) and he was also very nice about it. shortly after leaving i receive an email from him: \"actually you gave me a form meant for another class and instructor. i can get it back to you on tuesday should you need it.\" i had 2 papers to keep track of and distribute, i really thought i paid attention to which letter was which. i can't even help people help me what is this. i both cried and laughed my ass off",
+        "what are your favourites offbeat destinations of asia? this is my list. **cambodia** * koh rong: amazing beaches and a very serene romantic island * kratie: very beautiful and small town with amazing sunsets **china** * guilin: nature's paradise. rivers, lakes and the karst mountains * chongqing: caves, mountains, natural limestone bridges * zhangjiajie: gorges and thousands of out-of-the-world pillar like formations **india** * dalhousie: beautiful hill station and friendly people * gokarna: amazing beaches and laid back culture **indonesia** * yogyakarta: regarded as the soul of indonesia with its traditional arts, intellectual and cultural heritage. * raja ampat islands: islands are home to great white sandy beaches, hidden lagoons, spooky caves, weird mushroom shaped islets, fringing coral reefs and emerald waters. **japan** * aizuwakamatsu: samurai culture. history. unique cuisine * nikko: very beautiful mountain town with great architecture **jordan** * jerash: greco-roman ruins of gerasa that are the largest and most diverse ruins in jordan. * wadi rum valley: (not offbeat, but a trip to jordan is incomplete without it) can enjoy camping in the desert and camel riding. **kazakhstan** * shymbulak: amazing ski resort and beautiful mountains * karaganda: food capital and pretty 20th century buildings * almaty region: ile alatau national park and kolsai lake (unbelievable place) **kyrgyzstan** * karakol: great food. hospitable people who will invite you for family dinner * jyrgalan: secret destination. great for trekking and amazing night sky for star-gazing **laos** * vang vieng: backpacker friendly with nice bars, beautiful town and activities like caves, kayaking * nong khiaw: great adventure destination. rock climbing. stay with nature **malaysia** * ipoh: very beautiful city to enjoy culture * tioman island: amazing beaches, corals, dive sites **myanmar** * mergui: very beautiful 800+ islands and is one of the least visited places on the earth. * chaung tha: very beautiful sunsets **nepal** * mustang: great for trekking and adventure activities * namche bazaar: beautiful tiny village to witness the lifestyle of the sherpa people and their traditions **philippines** * vigan: romantic city with cobblestone streets, rich history and delicious food. * sagada: adveture destination. beautiful caves, hanging coffins and serene mountains **russia** * sochi: very beautiful beaches and pretty architecture * karelia: nature's paradise with beautiful lakes. enjoy snowmobiling , dog-sledding, boat trips and hiking * yakutsk: one of the coldest places on earth. experience permafrost. **south korea** * jeju: beaches, resorts and its volcanic landscape of craters and cave * boseong: green tea fields, buddhist temples and museums. very calm **thiland** * kanchanaburi: dense jungles, rivers, waterfalls. historical place * koh phangan: amazing beaches and full moon parties. still offbeat. **vietnam** * phu quoc islands: great parties and beautiful beaches * hoi an: (not offbeat, but must visit) small cultural town with lanterns around canal"
+      ]
+    },
+    "validation": {
+      "headers": [
+        "ID",
+        "title",
+        "post",
+        "class_name",
+        "class_id"
+      ],
+      "raw_row_count": 1488,
+      "usable_row_count": 1488,
+      "missing_values": {
+        "ID": 0,
+        "title": 0,
+        "post": 0,
+        "class_name": 0,
+        "class_id": 0
+      },
+      "duplicate_combined_texts": 0,
+      "class_distribution": {
+        "adhd": 248,
+        "depression": 248,
+        "anxiety": 248,
+        "bipolar": 248,
+        "ptsd": 248,
+        "none": 248
+      },
+      "generated_domain_distribution": {
+        "longer_than_training_median": 750,
+        "short_or_equal_training_median": 738
+      },
+      "examples": [
+        "do others feel like they have a warped sense of time passage across days/weeks/years? i have read others talking about how add/adhd affects their sense of time passage. however, it is usually in relation to periods of hyperfocus leading to lost hours. i definitely experience that, but also feel like i have a weird sense of time passage across larger units of time. for example, i was chatting with a former roommate of mine, and realized it has been seven years since we lived together. logically, i guess that is correct, but it felt so bizarre that seven years had passed, like i was floating in what i thought was a slow-moving river, only to look around and realize i have actually been carried miles. one of the biggest consequences is that months may pass when i don't call certain people, but i never realize it. i still feel like it has been a normal amount of time between visits or talks, until i actually stop and do the math. i end up feeling like a terrible friend/relative. maybe it's just part of getting older. i know years have sped by more and more. however, i can't help but feel like i have this problem more than others around me. does anyone else experience this?",
+        "do you ever feel like one small failure can derail your whole day and maybe even subsequent days? last night, i thought i had enough time to finish a homework assignment before it was due at midnight, but i didnt read it all the way through and, it turns out, there was an entire second section that was way too long for me to finish before the deadline. i went to bed feeling so guilty (about such a minor 5% late penalty, mind you). today, i slept through my first class and don't feel like doing anything and it all stems back to that one small failure, i think. i feel like i've had entire weeks that feel this way, too. i've made so much progress since my diagnosis, but i still feel totally powerless to my impulses and that really scares me.",
+        "so you've heard about getting a song in your head, now get ready for... ... random words in your head that won't go away! a separate thing entirely from the song. i have a song snippet in my head right now, it makes sense, it's a song i know and like. i also have the words \"creme de menthe\" in my head. doesn't make sense. never encountered creme de menthe in the wild, i don't like creme de menthe. i haven't read it anywhere recently that i'm aware of, and certainly haven't this morning. but there is it. the words are very seperate from the song but both in my mind at the same time. the song keeps looping, and my brain isn't inserting \"creme de menthe\" anywhere into the song or lyrics. creme de menthe is just there, ever present, sat to the side of the song like it's listening along too. not a picture of creme de menthe, just the words written down in my head. i can't even see the words, they're not etched in my minds eye, the words are just there. whenever i try to think of anything, creme de menthe! i've had it plenty, with lots of different words (parsley seems to come up a lot whenever i can't think of anything, but there are some totally random ones that come in - sometimes words or people's names i don't even know or understand and have to ask people about.) spoked to nts in my life and they don't seem to get this, unlike the songs. anyone else have this? tl;dr do you ever get random words/phrases in your head that won't go away?"
+      ]
+    },
+    "test": {
+      "headers": [
+        "ID",
+        "title",
+        "post",
+        "class_name",
+        "class_id"
+      ],
+      "raw_row_count": 1488,
+      "usable_row_count": 1488,
+      "missing_values": {
+        "ID": 0,
+        "title": 0,
+        "post": 0,
+        "class_name": 0,
+        "class_id": 0
+      },
+      "duplicate_combined_texts": 0,
+      "class_distribution": {
+        "adhd": 248,
+        "depression": 248,
+        "anxiety": 248,
+        "bipolar": 248,
+        "ptsd": 248,
+        "none": 248
+      },
+      "generated_domain_distribution": {
+        "longer_than_training_median": 766,
+        "short_or_equal_training_median": 722
+      },
+      "examples": [
+        "basic needs for neurotypicals : food, clothing and shelter. basic needs for me an adhders : dopamine, dopamine and dopamine. most people able to be productive and functional when their basic needs are fulfilled... so do i! but what different is what i need is fun and exciting stuffs (or my meds) for me to be able to being productive and \"functional\" (or my brain will be potato). people can't go on if they are hungry, i can still go on all day all night if i have my squishies or after hearing a good song in spotify which gives me my spurts of dopamines!",
+        "\"you're just an iphone in an android world.: diagnosed with adhd- combinative type at 23. cried. with joy. i'm 23f and recently quit my job as a features writer with an a-list fashion magazine because i fell sick too often and couldn't keep up with work. i struggled massively with the job: required juggling multiple deadlines, co-ordinating shoots, and working continuously in an unfriendly environment from 10.30am to 7pm and after. i went crazy. suffered panicky crying bouts very often. i finally left my job, broke off a painful relationship and moved home. i visited a terribly good shrink to talk about my repeated anxiety, frustration and proneness to angry mood swings. and he proceeded to ask me a string of questions and diagnose me. this diagnosis changed my life, and no hyperbole here. all the frustration from trying to disguise my \"slowness\", tear-filled memories of school where i was \"full of potential but lazy and rebellious\" made complete sense. had i been diagnosed then, i don't think it would have been handled properly. i am super happy it came at this time. everything fell into place. i'll still struggle, but at least i know now. i feel great about it. not a shred of inferiority here. and it's like my new boyfriend. i want to announce it everywhere. take pictures with it and make out with it. fuck yeah adhd. we're all special motherfuckers.",
+        "\"what kind of music do you listen to?\" no answer i just got finished with an interview and as the boss was walking me to the door he asked me what kind of music i listen to. i had absolutely no answer. i listen to music every single day. i listen to new bands and artists every day. but yet i don't know what i listen to. i can't recall names or bands or songs or artists or anything. i love all genres too. i just know that when i turn on my spotify playlist something i enjoy will play. anybody else have this? i can listen to an album 100 times and not know what the album name is or what my favorite song off that album is called. it's so frustrating talking to people about music because i can't recall anything."
+      ]
+    }
+  }
+}
