@@ -1,0 +1,3 @@
+Model,Accuracy,Macro Precision,Macro Recall,Macro F1,Weighted F1,ROC-AUC
+DistilRoBERTa (Baseline),0.8401,0.8446,0.8401,0.8402,0.8402,0.9778
+DistilRoBERTa + GRL,0.8461,0.8474,0.8461,0.8461,0.8461,0.9787

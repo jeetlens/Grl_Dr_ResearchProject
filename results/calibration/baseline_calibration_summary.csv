@@ -1,0 +1,7 @@
+Metric,Value
+ECE (Expected Calibration Error),0.0386
+MCE (Maximum Calibration Error),0.7108
+Brier Score,0.0371
+Negative Log-Likelihood (NLL),0.4472
+Mean Confidence,0.8777
+Num Samples,1488

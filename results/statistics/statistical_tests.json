@@ -1,0 +1,26 @@
+{
+  "accuracy": {
+    "baseline_mean": 84.81,
+    "grl_mean": 84.59,
+    "baseline_std": 0.71,
+    "grl_std": 0.84
+  },
+  "macro_f1": {
+    "baseline_mean": 84.83,
+    "grl_mean": 84.61,
+    "baseline_std": 0.71,
+    "grl_std": 0.81
+  },
+  "weighted_f1": {
+    "baseline_mean": 84.83,
+    "grl_mean": 84.61,
+    "baseline_std": 0.71,
+    "grl_std": 0.81
+  },
+  "roc_auc": {
+    "baseline_mean": 97.81,
+    "grl_mean": 97.79,
+    "baseline_std": 0.03,
+    "grl_std": 0.16
+  }
+}

@@ -1,0 +1,6 @@
+Metric,Baseline,GRL
+ECE,0.0386,0.0669
+MCE,0.7108,0.7199
+Brier Score,0.0371,0.0372
+Negative Log-Likelihood,0.4472,0.4659
+Mean Confidence,0.8777,0.9121
